@@ -1,0 +1,11 @@
+.about-section {
+    padding-top: 60px;
+    display: grid;
+    text-align: center;
+    
+    font-size: 30px;
+    position: absolute;
+    background-color: rgba(232, 230, 230, 0.35);
+    min-height: 300px;
+    
+}
