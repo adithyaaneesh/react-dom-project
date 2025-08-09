@@ -37,7 +37,7 @@ export const productList = [
         title:'Golden Leaf Grid',
         price: 250,
         link:'Add to Cart',
-        // status: 'Sale'
+        status: 'Top Seller'
     },
     {
         id: 6,
@@ -45,7 +45,7 @@ export const productList = [
         title:'Pink Panther Leap',
         price: 320,
         link:'Add to Cart',
-        // status: 'Sale'
+        status: 'Top Seller'
     },
     {
         id: 7,
@@ -53,7 +53,7 @@ export const productList = [
         title:'Monochrome Dotscape',
         price: 280,
         link:'Add to Cart',
-        // status: 'Sale'
+        // status: 'Top Seller'
     },
     {
         id: 8,
@@ -61,7 +61,7 @@ export const productList = [
         title:'Mystic Eyes',
         price: 290,
         link:'Add to Cart',
-        status: 'Sale'
+        // status: 'Top Seller'
     },
     {
         id: 9,

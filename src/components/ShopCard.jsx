@@ -24,6 +24,7 @@ const ShopCard = ({ data }) => {
             {data.status && (
                 <div className={`product-tag ${data.status.toLowerCase().replace(' ', '-')}`}>
                     {data.status}
+                    
                 </div>
             )}
             <img src={data.image} alt={data.title} className="product-image" />
