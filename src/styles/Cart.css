@@ -60,6 +60,8 @@
 .cart-item img {
     border-radius: 5px;
     border: 1px solid #ddd;
+    max-width: 300px;
+    min-height: 300px;
 }
 
 .item-details {
