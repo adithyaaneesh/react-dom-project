@@ -1,4 +1,4 @@
-.content {
+.foot-content {
     padding-top:20px;
     color: white;
     display: flex;
@@ -7,7 +7,7 @@
     list-style-type: none;
     gap: 43px;
 }
-.content a {
+.foot-content a {
     color: white;
     text-decoration: none;
 }
@@ -22,7 +22,6 @@
     gap: 10px;
 }
 small{
-
     color: red;
 }
 .query input{

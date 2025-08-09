@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className='container'>
       <div className='footer-content'>
-        <div className='content'>
+        <div className='foot-content'>
           <div>
             <li><a href="#">Shipping & Returns</a></li>
             <li><a href="#">Store Policy</a></li>
@@ -21,13 +21,14 @@ const Footer = () => {
             <li><a href="#">pinterest</a></li>
           </div>
         </div>
-        <p>Join our mailing list and never miss an update</p>
-        <div className='query'>
-          <input type="email" name="email" placeholder='Email*' />
-          <button type="submit">Subscribe Now</button><br/>
+        <div>
+          <p>Join our mailing list and never miss an update</p>
+          <div className='query'>
+            <input type="email" name="email" placeholder='Email*' />
+            <button type="submit">Subscribe Now</button><br/>
+          </div>
+          <small>Enter an email address like example@mysite.com.</small>
         </div>
-        <small>Enter an email address like example@mysite.com.</small>
-
       </div>
     </div>
   )

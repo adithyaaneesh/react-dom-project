@@ -2,3 +2,23 @@
     text-decoration: line-through;
     font-size: 12px;
 }
+.product-price {
+    gap: 10px;
+}
+
+.add-to-cart-btn {
+    max-width: 200px;
+    padding: 15px;
+    border: none;
+    background-color: black;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #545455;
+}

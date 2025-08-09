@@ -27,6 +27,7 @@ const Header = () => {
                 <h3>Tote</h3>
                 <p>Frunky Printed Bags</p>
             </div>
+            <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/shop'}>Shop</Link></li>
             <li><Link to={'/about'}>About</Link></li>
             <li><Link to={'/faq'}>FAQ</Link></li>
@@ -38,8 +39,8 @@ const Header = () => {
                 <input type="text" placeholder="Search"/>
                 </div>
                 <div className='log'>
-                    <Link to="/cart" className="user-icon"><img src="/images/avatar.svg" alt="#" />
-                        <Link to={'/login'}></Link> 
+                    <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                         
                     </Link>
                     <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
                         {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
