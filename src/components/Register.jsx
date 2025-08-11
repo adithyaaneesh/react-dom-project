@@ -35,6 +35,7 @@ const Register = () => {
             // console.log(res, ' response')
             window.localStorage.setItem('access_token', res.data.token)
             window.localStorage.setItem('user_data', JSON.stringify(res.data.data))
+            toast.success("Successfully Registered")
             navigator('/')
 
         })

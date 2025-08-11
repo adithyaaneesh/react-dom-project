@@ -30,13 +30,14 @@ const Login = () => {
 
         await axios.post('https://ecommerce-project-backend-nodejs.onrender.com/api/auth/login',userData, {})
         .then((res)=> {
-            console.log(res,'res')
+            console.log(res,'response')
+            toast.success("Login Successfully")
             navigator('/')
 
 
         }).catch((error)=> {
             console.log(error,'error')
-            toast.error(error.message)
+            toast.error(error.response.data.message)
 
         })
     };
