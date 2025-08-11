@@ -13,6 +13,7 @@
 }
 
 .footer-content {
+    min-height: 300px;
     background-color: black;
     display: grid;
     place-content: center;
