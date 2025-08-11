@@ -40,7 +40,7 @@ const Header = () => {
                 </div>
                 <div className='log'>
                     <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
-                         
+                      Log In   
                     </Link>
                     <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
                         {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
