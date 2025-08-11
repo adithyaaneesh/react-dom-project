@@ -4,11 +4,9 @@ import '../styles/Register.css'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-
 // import toast, { Toaster } from 'react-hot-toast';
 
 // const notify = () => toast.error('Here is your toast.');
-
 
 const Register = () => {
     // const [name, setName] = useState('');
@@ -76,20 +74,36 @@ const Register = () => {
                      id="name"  
                      name='name' 
                      value={userData.name} 
-                     onChange={handleInputChange} 
+                     onChange={handleInputChange}
                      placeholder="Enter your name" 
                      required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name='email' value={userData.email} onChange={handleInputChange} placeholder="Enter your email" required/>
+                    <input 
+                    type="email" 
+                    id="email" name='email'
+                    value={userData.email} 
+                    onChange={handleInputChange} 
+                    placeholder="Enter your email" 
+                    required/>
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name='password' value={userData.password} onChange={handleInputChange} placeholder="Create a password" required/>
+                    <input type="password" 
+                    id="password" 
+                    name='password' 
+                    value={userData.password} 
+                    onChange={handleInputChange} 
+                    placeholder="Create a password" 
+                    required/>
                 </div>
                 
-                <button type="submit" className="auth-button" disabled={loading}>{ loading ? 'Loading...' : 'Register' }</button>
+                <button 
+                type="submit" 
+                className="auth-button" 
+                disabled={loading}>{ loading ? 'Loading...' : 'Register' }
+                </button>
                 <p className="auth-link-text">Already have an account? <Link to="/login">Log In</Link></p>
             </form>
         </div>
