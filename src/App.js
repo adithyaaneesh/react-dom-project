@@ -13,6 +13,7 @@ import Error from './components/Error';
 import Login from './components/Login';
 import Register from './components/Register';
 import Cart from './components/Cart';
+import ProtectedRoutes from './hooks/useProtectedRoutes';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -29,6 +30,7 @@ function App() {
   <>
   <BrowserRouter>
       <Header />
+      <ProtectedRoutes/>
     <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/shop' element={<Shop/>}/>
