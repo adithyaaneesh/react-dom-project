@@ -52,6 +52,7 @@ const Header = () => {
                     <img src='/images/search.svg'/>
                     <input type="text" placeholder="Search"/>
                     </div>
+
                     {isLoggedIn ? (
                         <>
                             <li>
