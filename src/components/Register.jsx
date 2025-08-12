@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { data, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Register.css'
 import axios from 'axios';
 import toast from 'react-hot-toast';

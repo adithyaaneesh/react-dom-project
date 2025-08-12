@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const ProtectedRoutes = () => {
-
-
-    
+const ProtectedRoutes = () => { 
   const navigator = useNavigate()
   const location = useLocation()
 
