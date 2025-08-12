@@ -4,14 +4,9 @@ import '../styles/Register.css'
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-// import toast, { Toaster } from 'react-hot-toast';
-
-// const notify = () => toast.error('Here is your toast.');
 
 const Register = () => {
-    // const [name, setName] = useState('');
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
+
 
     const navigator = useNavigate()
     const [userData, setUserData] = useState({
@@ -32,7 +27,6 @@ const Register = () => {
 
          await axios.post('https://ecommerce-project-backend-nodejs.onrender.com/api/auth/register', data, { } )
         .then(res=> {
-            // console.log(res, ' response')
             window.localStorage.setItem('access_token', res.data.token)
             window.localStorage.setItem('user_data', JSON.stringify(res.data.data))
             toast.success("Successfully Registered")
@@ -50,16 +44,6 @@ const Register = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true)
-        // const data = await fetch('https://ecommerce-project-backend-nodejs.onrender.com/api/auth/register', {
-        // method: 'POST', // Specify the HTTP method as POST
-        // headers: {
-        //     'Content-Type': 'application/json' // Indicate that the body contains JSON data
-        // },
-        // body: JSON.stringify(userData) // Convert the JavaScript object to a JSON string
-        // }).then(res=> res.json()).then(data=> console.log(data, 'data')).catch(err=> {
-        //     console.log(err, 'errrrrrr')
-        // })
-
         handleRegister(userData)
         
     };
