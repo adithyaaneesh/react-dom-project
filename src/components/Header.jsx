@@ -33,18 +33,25 @@ const Header = () => {
                 <h3>Tote</h3>
                 <p>Frunky Printed Bags</p>
             </div>
+            <div class="nav-btn">
+                <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+                </label>
+            </div>
             <li><Link to={'/'}>Home</Link></li>
             <li><Link to={'/shop'}>Shop</Link></li>
             <li><Link to={'/about'}>About</Link></li>
             <li><Link to={'/faq'}>FAQ</Link></li>
             <li><Link to={'/gift'}>Gift Card</Link></li>
             <li><Link to={'/contact'}>Contact</Link></li>
-            <div class="header-icons">
-                <div class="search-box">
-                <img src='/images/search.svg'/>
-                <input type="text" placeholder="Search"/>
-                </div>
-                <div className='log'>
+            <li>
+                <div class="header-icons">
+                    <div class="search-box">
+                    <img src='/images/search.svg'/>
+                    <input type="text" placeholder="Search"/>
+                    </div>
                     {isLoggedIn ? (
                         <>
                             <li>
@@ -54,7 +61,9 @@ const Header = () => {
                         </>
                     ):(
                         <li>
-                             <Link to="/login" className="user-icon"> Log In </Link>
+                            <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                            
+                            </Link>
                         </li>
                     )}
                     
@@ -62,9 +71,8 @@ const Header = () => {
                         {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
                     </Link>
                 </div>
-                
-                
-            </div>
+            </li>
+
         </nav>
       
     </div>

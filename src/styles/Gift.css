@@ -12,6 +12,9 @@
     width: 500px;
     font-family: 'Times New Roman', Times, serif;
 }
+.form-data > div {
+    margin-top: 10px;
+}
 .price>div:nth-child(1) {
     border: 1px solid gray;
     display: flex;
