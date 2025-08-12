@@ -7,9 +7,6 @@ import toast from 'react-hot-toast';
 
 
 const Login = () => {
-    // const [email, setEmail] = useState('');
-    // const [password, setPassword] = useState('');
-
     const [userData, setUserData] = useState({
         email: '',
         password: '',
@@ -22,7 +19,6 @@ const Login = () => {
         const { value, name } = e.target
         setUserData(prev=> ({ ...prev, [name]: value })) 
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();

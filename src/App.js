@@ -14,6 +14,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Cart from './components/Cart';
 import ProtectedRoutes from './hooks/useProtectedRoutes';
+import User from './components/User';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -41,6 +42,7 @@ function App() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/user' element={<User/>}/>
         <Route path='*' element={<Error/>}/>
     </Routes>
       <Footer />
