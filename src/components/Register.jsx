@@ -17,6 +17,7 @@ const Register = () => {
     })
 
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleInputChange = (e) => {
         const { value, name } = e.target
@@ -75,13 +76,24 @@ const Register = () => {
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" 
-                    id="password" 
-                    name='password' 
-                    value={userData.password} 
-                    onChange={handleInputChange} 
-                    placeholder="Create a password" 
-                    required/>
+                    <div className="password-input-container">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            name='password'
+                            value={userData.password}
+                            onChange={handleInputChange}
+                            placeholder="Enter your password"
+                            required
+                        />
+                        <button
+                            type="button"
+                            className="show-password-button"
+                            onClick={() => setShowPassword(!showPassword)}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                    </div>
                 </div>
                 
                 <button 

@@ -59,7 +59,7 @@ const User = () =>  {
         <div className="user-profile-container">
             <div className="profile-card">
                 <FaUserCircle size={80} color="Black" />
-                <h2>Profile</h2>
+                <h2>My Profile</h2>
                 <p>Name: <strong>{user.name}</strong></p>
                 <p>Email: <strong>{user.email}</strong></p>
                 <button className="logout-button" onClick={handleLogout}>Log Out</button>

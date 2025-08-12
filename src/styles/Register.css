@@ -74,6 +74,30 @@
 .auth-link-text a:hover {
     text-decoration: underline;
 }
+.password-input-container {
+    position: relative;
+    width: 100%;
+}
+.password-input-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+.show-password-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.show-password-button:hover {
+    color: #000;
+}
 
 @media (max-width: 480px) {
     .form {
