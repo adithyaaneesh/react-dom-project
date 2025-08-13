@@ -1,4 +1,5 @@
 .error {
+    margin-top: 30px;
     display: grid;
     place-content: center;
     min-height: 300px;
