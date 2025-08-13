@@ -11,7 +11,11 @@
     color: white;
     text-decoration: none;
 }
-
+.foot-content p {
+    color: white;
+    text-decoration: none;
+    
+}
 .footer-content {
     min-height: 300px;
     background-color: black;
