@@ -12,3 +12,9 @@
 .product-list {
     padding-top: 60px;
 }
+@media screen and (max-width:680px) {
+    .cards {
+        grid-template-columns: 1fr;
+    }
+    
+}

@@ -6,16 +6,16 @@
     gap: 20px;
 }
 .gift>div img {
-    height: 300px;
+    min-height: 300px;
 }
 .form-data {
-    width: 500px;
+    max-width: 500px;
     font-family: 'Times New Roman', Times, serif;
 }
 .card-head p{
     font-size: 20px;
     display: flex;
-    align-items: flex-start;
+    justify-content: flex-start;
 }
 .form-data > div {
     margin-top: 10px;
@@ -28,23 +28,23 @@
 }
 .price1>div {
     border: 1px solid gray;
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
+    min-height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .counting {
     margin-top: 10px;
-    width: 100px;
-    height:100px;
+    max-width:100px;
+    min-height:100px;
 }
 .card-for>div {
     display: flex;
     gap: 10px;
 }
 .card-for>div>button {
-    width: 200px;
+    max-width: 200px;
 }
 .gift-form {
     display: flex;
@@ -52,12 +52,12 @@
     margin-top: 10px;
 }
 .gift-form input{
-    width: 400px;
-    height: 50px;
+    max-width: 400px;
+    min-height: 50px;
     margin-bottom: 10px;
 }
 .gift-form input:last-of-type{
-    height: 100px;
+    min-height: 100px;
 }
 .gift-form button{
     max-width: 410px;
@@ -74,4 +74,17 @@
     background-color: transparent;
     border: 1px solid black;
     color: black;
+}
+@media screen and (max-width:680px) {
+    .gift {
+        flex-direction: column;
+    }
+    .form-data {
+        max-width: 300px;
+    }
+    .gift>div img {
+        max-width: 100%;
+    }
+
+    
 }

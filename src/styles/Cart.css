@@ -144,7 +144,7 @@
     background-color: rgb(37, 173, 37);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
     .cart-item {
         flex-direction: column;
         align-items: flex-start;

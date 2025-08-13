@@ -39,3 +39,9 @@ small{
 .query input:active {
     border-color:none;
 }
+@media screen and (max-width:680px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+}
