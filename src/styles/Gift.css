@@ -12,6 +12,11 @@
     width: 500px;
     font-family: 'Times New Roman', Times, serif;
 }
+.card-head p{
+    font-size: 20px;
+    display: flex;
+    align-items: flex-start;
+}
 .form-data > div {
     margin-top: 10px;
 }
@@ -30,6 +35,7 @@
     align-items: center;
 }
 .counting {
+    margin-top: 10px;
     width: 100px;
     height:100px;
 }
