@@ -8,18 +8,22 @@ const Gift = () => {
             <img src='https://static.wixstatic.com/media/e90a2a_c3de803545f340df9dd4aa88a72e0718~mv2.png/v1/fill/w_677,h_451,al_c,lg_1,q_85,enc_auto/e90a2a_c3de803545f340df9dd4aa88a72e0718~mv2.png'></img>
         </div>
         <div className='form-data'>
-            <div>
+            <div className='card-head'>
                 <h1>eGift Card</h1>
                 <p>$25</p>
                 <p>You can't go wrong with a gift card. Choose an amount and write a personalized message to make this gift your own.</p>
             </div>
             <div className='price'>
                 <div className='price1'>
-                    <div>$25</div>
-                    <div>$50</div>
+                    <button>$25</button>
+                    <button>$25</button>
+                    <button>$25</button>
+                    <button>$25</button>
+                    <button>$25</button>
+                    {/* <div>$50</div>
                     <div>$100</div>
                     <div>$150</div>
-                    <div>$200</div>
+                    <div>$200</div> */}
                 </div>
                 <div className='counting'>
                     <p>Quantity</p>
