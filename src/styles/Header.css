@@ -18,10 +18,12 @@ nav > div {
 nav li {
     padding-top: 20px;
 }
-.menu-items {   
+.menu-items { 
+    font-size: 10px;  
+    max-height: 90px;
     list-style-type: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     text-align: center;
 }    
 .menu-items li a{
@@ -47,14 +49,8 @@ nav li {
     border-right: 0;
     border-left: 0;
 }
-.search-box input:active {
-    border-color:none;
-}
-.user-icon img {
-    min-height: 20px;
-    max-width: 20px;
-}
 
+.user-icon img,
 .cart-icon img {
     min-height: 20px;
     max-width: 20px;
@@ -90,7 +86,10 @@ nav li {
 
 .header-icons {
     display: flex;
-    align-items: center;
+    gap: 10px;
+}
+.header-icons div:nth-child(2) {
+    display: inline-flex;
 }
 
 .header-icons .cart-info {
@@ -107,9 +106,6 @@ nav li {
     transition: color 0.2s;
 }
 
-.header-icons .user-icon:hover {
-    color: #656565;
-}
 
 .header-icons .cart-count {
     background-color: #070707; 
@@ -126,9 +122,7 @@ nav li {
 
 
 }
-.menu-items > #nav-check {
-    display: none;
-}
+
 
 @media (max-width: 600px) {
   

@@ -43,26 +43,26 @@ const Header = () => {
                 <li>
                     <div class="header-icons">
                         <div class="search-box">
-                        <img src='/images/search.svg'/>
-                        <input type="text" placeholder="Search"/>
+                            <img src='/images/search.svg'/>
+                            <input type="text" placeholder="Search"/>
                         </div>
-                        {isLoggedIn ? (
-                            <>
+                        <div>
+                            {isLoggedIn ? (  
                                 <li>
                                     <Link to="/user" className="user-icon"><img src="/images/avatar.svg" alt="#" />
                                     </Link>
                                 </li>
-                            </>
-                        ):(
-                            <li>
-                                <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
-                                
-                                </Link>
-                            </li>
-                        )}                  
-                        <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
-                            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                        </Link>
+                            ):(
+                                <li>
+                                    <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                                    
+                                    </Link>
+                                </li>
+                            )}                  
+                            <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
+                                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+                            </Link>
+                        </div>
                     </div>
                 </li>
             </nav>  
