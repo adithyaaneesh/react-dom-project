@@ -15,16 +15,15 @@ nav {
 nav > div {
     text-align: start;
 }
-nav li {
-    padding-top: 20px;
-}
+
 .menu-items { 
     font-size: 10px;  
     max-height: 90px;
     list-style-type: none;
     display: flex;
     justify-content: space-evenly;
-    text-align: center;
+    align-items: center;
+    
 }    
 .menu-items li a{
     font-weight: 600;
@@ -86,9 +85,10 @@ nav li {
 
 .header-icons {
     display: flex;
-    gap: 10px;
+    gap: 12px;
 }
 .header-icons div:nth-child(2) {
+    gap: 12px;
     display: inline-flex;
 }
 
@@ -130,7 +130,7 @@ nav li {
     align-items: center;
     flex-direction: column;
     position: relative;
-    min-height: 90px;
+    /* min-height: 90px; */
   }
 
 }
