@@ -2,13 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    margin-top: 20px;
     padding: 20px;
     background-color: #f4f4f4;
 }
 
 .auth-form {  
-    margin-top: 20px;
     background: #fff;
     padding: 40px;
     border-radius: 10px;
@@ -76,7 +75,7 @@
 }
 
 .password-input-container {
-    position: relative;
+    /* position: relative; */
     width: 100%;
 }
 .password-input-container input {
@@ -84,7 +83,7 @@
     padding-right: 40px;
 }
 .show-password-button {
-    position: absolute;
+    /* position: absolute; */
     right: 10px;
     top: 50%;
     transform: translateY(-50%);

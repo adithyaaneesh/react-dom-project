@@ -17,14 +17,10 @@ const Gift = () => {
                 <div className='price'>
                     <div className='price1'>
                         <button>$25</button>
-                        <button>$25</button>
-                        <button>$25</button>
-                        <button>$25</button>
-                        <button>$25</button>
-                        {/* <div>$50</div>
-                        <div>$100</div>
-                        <div>$150</div>
-                        <div>$200</div> */}
+                        <button>$50</button>
+                        <button>$100</button>
+                        <button>$150</button>
+                        <button>$200</button>
                     </div>
                     <div className='counting'>
                         <p>Quantity</p>

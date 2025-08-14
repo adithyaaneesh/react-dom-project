@@ -1,4 +1,5 @@
 .foot-content {
+    max-width: 800px;
     padding-top:20px;
     color: white;
     display: flex;
@@ -11,23 +12,37 @@
     color: white;
     text-decoration: none;
 }
-.foot-content p {
+.foot-content + p {
     color: white;
-    text-decoration: none;
+    font-size: 14px;
+    text-align: start;
+    font-weight: 100;
     
 }
 .footer-content {
-    min-height: 300px;
+    min-height: 250px;
     background-color: black;
     display: grid;
     place-content: center;
+    padding-bottom: 20px;
 }
 .query {
     display: flex;
     gap: 10px;
 }
-small{
+.query button {
+    padding: 10px 10px 10px 10px;
+}
+.query button:hover {
+    background-color: rgb(234, 233, 233);
+}
+.query + p {
     color: red;
+    font-size: 12px;
+    text-align: start;
+}
+small{
+    color: white;
 }
 .query input{
     background-color: transparent;
@@ -36,9 +51,23 @@ small{
     border-right: 0;
     border-left: 0;
 }
-.query input:active {
-    border-color:none;
+.foot {
+    background-color: rgb(150, 148, 148);
+    max-width:100%;
+    font-size: 14px;
+    min-height: 30px;
+    margin-bottom: 20px;
+
 }
+.foot p {
+    color: black;
+    text-align: center;
+    font-weight: 400;
+}
+.foot span {
+    text-decoration: underline;
+}
+
 @media screen and (max-width:680px) {
     .footer-content {
         flex-direction: column;
