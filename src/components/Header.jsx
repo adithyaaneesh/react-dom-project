@@ -34,37 +34,43 @@ const Header = () => {
                     <h3>Tote</h3>
                     <p>Frunky Printed Bags</p>
                 </div>
-                <li><Link to={'/'}>Home</Link></li>
-                <li><Link to={'/shop'}>Shop</Link></li>
-                <li><Link to={'/about'}>About</Link></li>
-                <li><Link to={'/faq'}>FAQ</Link></li>
-                <li><Link to={'/gift'}>Gift Card</Link></li>
-                <li><Link to={'/contact'}>Contact</Link></li>
-                <li>
-                    <div class="header-icons">
-                        <div class="search-box">
-                            <img src='/images/search.svg'/>
-                            <input type="text" placeholder="Search"/>
-                        </div>
-                        <div>
-                            {isLoggedIn ? (  
-                            <li>
-                                <Link to="/user" className="user-icon"><img src="/images/userpass.svg" alt="#" />
+                <div>
+                    <ul >
+                       <div>
+                        <li><Link to={'/'}>Home</Link></li>
+                        <li><Link to={'/shop'}>Shop</Link></li>
+                        <li><Link to={'/about'}>About</Link></li>
+                        <li><Link to={'/faq'}>FAQ</Link></li>
+                        <li><Link to={'/gift'}>Gift Card</Link></li>
+                        <li><Link to={'/contact'}>Contact</Link></li>
+                       </div>
+                        <li>
+                            <div class="header-icons">
+                                <div class="search-box">
+                                    <img src='/images/search.svg'/>
+                                    <input type="text" placeholder="Search"/>
+                                </div>
+                                <div>
+                                    {isLoggedIn ? (  
+                                    <li>
+                                        <Link to="/user" className="user-icon"><img src="/images/userpass.svg" alt="#" />
+                                        </Link>
+                                    </li>
+                                ):(
+                                    <li>
+                                        <Link to="/login" className="user-icon"><img src="/images/usercross.svg" alt="#" />
+                                        
+                                        </Link>
+                                    </li>
+                                )}                  
+                                <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
+                                    {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
                                 </Link>
-                            </li>
-                        ):(
-                            <li>
-                                <Link to="/login" className="user-icon"><img src="/images/usercross.svg" alt="#" />
-                                
-                                </Link>
-                            </li>
-                        )}                  
-                        <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
-                            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                        </Link>
-                        </div>
-                    </div>
-                </li>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </nav>  
         </div>
     </header>
