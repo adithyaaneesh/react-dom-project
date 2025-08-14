@@ -6,7 +6,6 @@
 }
 
 nav {
-    min-height: 90px;
     background: white;
     overflow: hidden;
     position: fixed;
@@ -137,6 +136,7 @@ nav li {
     align-items: center;
     flex-direction: column;
     position: relative;
+    min-height: 90px;
   }
 
 }

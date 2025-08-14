@@ -27,49 +27,47 @@ const Header = () => {
         return () => window.removeEventListener("cartUpdated", updateCount);
     }, []);
   return (
-    <div className='container'>
-        <nav className='menu-items'>
-            <div>
-                <h3>Tote</h3>
-                <p>Frunky Printed Bags</p>
-            </div>
-            <li><Link to={'/'}>Home</Link></li>
-            <li><Link to={'/shop'}>Shop</Link></li>
-            <li><Link to={'/about'}>About</Link></li>
-            <li><Link to={'/faq'}>FAQ</Link></li>
-            <li><Link to={'/gift'}>Gift Card</Link></li>
-            <li><Link to={'/contact'}>Contact</Link></li>
-            <li>
-                <div class="header-icons">
-                    <div class="search-box">
-                    <img src='/images/search.svg'/>
-                    <input type="text" placeholder="Search"/>
-                    </div>
-
-                    {isLoggedIn ? (
-                        <>
+    <header>
+        <div className='container'>
+            <nav className='menu-items'>
+                <div>
+                    <h3>Tote</h3>
+                    <p>Frunky Printed Bags</p>
+                </div>
+                <li><Link to={'/'}>Home</Link></li>
+                <li><Link to={'/shop'}>Shop</Link></li>
+                <li><Link to={'/about'}>About</Link></li>
+                <li><Link to={'/faq'}>FAQ</Link></li>
+                <li><Link to={'/gift'}>Gift Card</Link></li>
+                <li><Link to={'/contact'}>Contact</Link></li>
+                <li>
+                    <div class="header-icons">
+                        <div class="search-box">
+                        <img src='/images/search.svg'/>
+                        <input type="text" placeholder="Search"/>
+                        </div>
+                        {isLoggedIn ? (
+                            <>
+                                <li>
+                                    <Link to="/user" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                                    </Link>
+                                </li>
+                            </>
+                        ):(
                             <li>
-                                <Link to="/user" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                                <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
+                                
                                 </Link>
                             </li>
-                        </>
-                    ):(
-                        <li>
-                            <Link to="/login" className="user-icon"><img src="/images/avatar.svg" alt="#" />
-                            
-                            </Link>
-                        </li>
-                    )}
-                    
-                    <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
-                        {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                    </Link>
-                </div>
-            </li>
-
-        </nav>
-      
-    </div>
+                        )}                  
+                        <Link to="/cart" className="cart-icon"><img src="/images/shopping-bag.svg" alt="#" />
+                            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+                        </Link>
+                    </div>
+                </li>
+            </nav>  
+        </div>
+    </header>
   )
 }
 

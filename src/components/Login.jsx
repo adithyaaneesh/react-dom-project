@@ -47,45 +47,46 @@ const Login = () => {
     };
 
     return (
-        <div className="auth-container">
-            <form className="auth-form" onSubmit={handleSubmit}>
-                <h2>Log In</h2>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input 
-                    type="email" 
-                    id="email" 
-                    name='email'
-                    value={userData.email} 
-                    onChange={handleInputChange} 
-                    placeholder="Enter your email" 
-                    required/>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <div className="password-input-container">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="password"
-                            name='password'
-                            value={userData.password}
-                            onChange={handleInputChange}
-                            placeholder="Enter your password"
-                            required
-                        />
-                        <button
-                            type="button"
-                            className="show-password-button"
-                            onClick={() => setShowPassword(!showPassword)}
-                        >
-                            {showPassword ? "Hide" : "Show"}
-                        </button>
+        <section>
+            <div className="auth-container">
+                <form className="auth-form" onSubmit={handleSubmit}>
+                    <h2>Log In</h2>
+                    <div className="form-group">
+                        <label htmlFor="email">Email</label>
+                        <input 
+                        type="email" 
+                        id="email" 
+                        name='email'
+                        value={userData.email} 
+                        onChange={handleInputChange} 
+                        placeholder="Enter your email" 
+                        required/>
                     </div>
-                </div>
-                <button type="submit" className="auth-button">Log In</button>
-                <p className="auth-link-text">Don't have an account? <Link to="/register">Register</Link></p>
-            </form>
-        </div>
+                    <div className="form-group">
+                        <label htmlFor="password">Password</label>
+                        <div className="password-input-container">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                name='password'
+                                value={userData.password}
+                                onChange={handleInputChange}
+                                placeholder="Enter your password"
+                                required
+                            />
+                            <button
+                                type="button"
+                                className="show-password-button"
+                                onClick={() => setShowPassword(!showPassword)}>
+                                {showPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" className="auth-button">Log In</button>
+                    <p className="auth-link-text">Don't have an account? <Link to="/register">Register</Link></p>
+                </form>
+            </div>
+        </section>
     );
 };
 
