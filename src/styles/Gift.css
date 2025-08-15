@@ -46,6 +46,10 @@
     background-color: transparent;
     border: 1px solid black;
 }
+.price-button button:active {
+    background-color: black;
+    color: white;
+}
 .counting {
     margin-top: 10px;
     max-width:100px;
@@ -64,6 +68,10 @@
     background-color: transparent;
     padding: 5px 5px 5px 5px;
 
+}
+.card-for > div > button:active {
+    background-color: black;
+    color: white;
 }
 .gift-form {
     display: flex;
@@ -94,12 +102,20 @@ textarea {
     color: white;
     border: 1px solid black;
 }
+.gift-form button:nth-of-type(1):active {
+    background-color: transparent;
+    color: black;
+}
 .gift-form button:nth-of-type(2){
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: transparent;
     border: 1px solid black;
     color: black;
+}
+.gift-form button:nth-of-type(2):active {
+    background-color: black;
+    color:white;
 }
 @media screen and (max-width:680px) {
     .gift {
