@@ -11,11 +11,12 @@ const Gift = () => {
             <div className='form-data'>
                 <div className='card-head'>
                     <h1>eGift Card</h1>
-                    <h2>$25</h2>
+                    <span>$25</span>
                     <p>You can't go wrong with a gift card. Choose an amount and write a personalized message to make this gift your own.</p>
                 </div>
                 <div className='price'>
-                    <div className='price1'>
+                    <p>Amount</p>
+                    <div className='price-button'>
                         <button>$25</button>
                         <button>$50</button>
                         <button>$100</button>
@@ -40,15 +41,15 @@ const Gift = () => {
                     <div>
                         <form className='gift-form'>
                             <label>Recipient email*</label>
-                            <input type='email'></input>
+                            <input type='email' id='email' name='email'/>
                             <label>Recipient name</label>
-                            <input type='text'></input>
+                            <input type='text' id='name' name='name'/>
                             <label>Delivery date</label>
-                            <input type='date' placeholder='Now'></input>
+                            <input type='date' id="date"></input>
                             <label>Message</label>
-                            <input type='text'></input>
+                            <textarea type="text" name="message" id="message"></textarea>
                             <button>Add to cart</button>
-                            <button>By Now</button>
+                            <button>Buy Now</button>
                         </form>
                     </div>
                 </div>
