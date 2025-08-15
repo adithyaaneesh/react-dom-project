@@ -47,7 +47,9 @@ const Header = () => {
                         <li>
                             <div class="header-icons">
                                 <div class="search-box">
-                                    <img src='/images/search.svg'/>
+                                    <Link to="/shop" className="user-icon"><img src='/images/search.svg' alt="#" />
+                                    </Link>
+                                    
                                     {/* <input type="text" placeholder="Search"/> */}
                                 </div>
                                 <div>
