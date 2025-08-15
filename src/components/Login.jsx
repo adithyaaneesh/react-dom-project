@@ -48,7 +48,7 @@ const Login = () => {
 
     return (
         <section>
-            <div className="auth-container">
+            <div className="auth-container container">
                 <form className="auth-form" onSubmit={handleSubmit}>
                     <h2>Log In</h2>
                     <div className="form-group">
