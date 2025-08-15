@@ -56,15 +56,17 @@ const User = () =>  {
         return <div className="no-data-message">No user available.</div>;
     }
     return (
-        <div className="user-profile-container">
-            <div className="profile-card">
-                <FaUserCircle size={80} color="Black" />
-                <h2>My Profile</h2>
-                <p>Name: <strong>{user.name}</strong></p>
-                <p>Email: <strong>{user.email}</strong></p>
-                <button className="logout-button" onClick={handleLogout}>Log Out</button>
+        <section>
+            <div className="user-profile-container container">
+                <div className="profile-card">
+                    <FaUserCircle size={80} color="Black" />
+                    <h2>My Profile</h2>
+                    <p>Name: <strong>{user.name}</strong></p>
+                    <p>Email: <strong>{user.email}</strong></p>
+                    <button className="logout-button" onClick={handleLogout}>Log Out</button>
+                </div>
             </div>
-        </div>
+        </section>
     );
 }
 export default User;
