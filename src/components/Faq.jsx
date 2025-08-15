@@ -1,21 +1,23 @@
 import React from 'react'
 import '../styles/faq.css'
-import { FaqList } from '../data/Faq'
+import {FaqList} from '../data/Faq'
+import FaqCard from './FaqCard'
 
 const Faq = () => {
-  return (
-    <div className="faq-container">
-        <div className="faq-item">
-            <div className="faq-question">
-                <h3>Question 1 Title</h3>
-                <span className="toggle-icon">+</span>
-            </div>
-                <div className="faq-answer">
-                <p>Answer to Question 1.</p>
-            </div>
-        </div>
-    </div>
 
+
+  return (
+    <section>
+      <div className='container'>
+        <h2>FAQ</h2>
+        <p>Frequently Asked Questions</p>
+        <div className="faq-container">
+          {
+            FaqList.map((item, idx) => <FaqCard data={item} key={idx}/> )
+          }
+        </div>
+      </div>   
+    </section>
   )
 }
 

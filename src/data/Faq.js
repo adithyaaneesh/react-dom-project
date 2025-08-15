@@ -1,34 +1,14 @@
-// export const FaqList = () => { 
-
-
-//     document.addEventListener('DOMContentLoaded', () => {
-//     const faqItems = document.querySelectorAll('.faq-item');
-
-//     faqItems.forEach(item => {
-//         const question = item.querySelector('.faq-question');
-//         const answer = item.querySelector('.faq-answer');
-//         const toggleIcon = item.querySelector('.toggle-icon');
-
-//         question.addEventListener('click', () => {
-
-//         faqItems.forEach(otherItem => {
-//             if (otherItem !== item && otherItem.classList.contains('active')) {
-//             otherItem.classList.remove('active');
-//             otherItem.querySelector('.faq-answer').style.maxHeight = null;
-//             otherItem.querySelector('.toggle-icon').textContent = '+';
-//             }
-//         });
-
-
-//         item.classList.toggle('active');
-//         if (item.classList.contains('active')) {
-//             answer.style.maxHeight = answer.scrollHeight + 'px'; // Set max-height to content height
-//             toggleIcon.textContent = '-';
-//         } else {
-//             answer.style.maxHeight = null;
-//             toggleIcon.textContent = '+';
-//         }
-//         });
-//     });
-//     });
-// }
+export const FaqList = [
+    { 
+        question: "What is an FAQ section?", 
+        answer: `An FAQ section can be used to quickly answer common questions about your business like "Where do you ship to?", "What are your opening hours?", or "How can I book a service?". `
+    },
+    { 
+        question: "Why do FAQs matter?", 
+        answer: "FAQs are a great way to help site visitors find quick answers to common questions about your business and create a better navigation experience." 
+    },
+    { 
+        question: "Where can I add my FAQs?", 
+        answer: "FAQs can be added to any page on your site or to your Wix mobile app, giving access to members on the go." 
+    },
+]
