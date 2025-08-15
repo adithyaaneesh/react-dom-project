@@ -55,7 +55,7 @@ nav > div {
 .active {
     color: rgb(205, 204, 204);
 }
-.search-box img {
+/* .search-box img {
     min-height: 13px;
     max-width: 13px;
 }
@@ -66,8 +66,9 @@ nav > div {
     border-top: 0;
     border-right: 0;
     border-left: 0;
-}
+} */
 
+.search-box img,
 .user-icon img,
 .cart-icon img {
     min-height: 20px;
@@ -104,7 +105,7 @@ nav > div {
 
 .header-icons {
     display: flex;
-    gap: 12px;
+    gap: 22px;
 }
 .header-icons div:nth-child(2) {
     gap: 12px;
@@ -147,9 +148,16 @@ nav > div {
   
   .menu-items div:nth-child(2) ul div {
     align-items: center;
-    flex-direction: column;
+    /* flex-flow: column wrap; */
+    font-size: 9px;
+    gap: 3px;
     position: relative;
-    min-height: 100px;
+    /* min-height: 100px; */
+  }
+  .header-icons {
+    grid-template-rows: 1fr;
+    align-items: flex-start;
+    
   }
 
 }
