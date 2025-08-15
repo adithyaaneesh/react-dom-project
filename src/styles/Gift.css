@@ -4,65 +4,90 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    line-height: 1.5
 }
-.gift>div img {
-    min-height: 300px;
+.gift img {
+    max-width: 300px;
+    min-height: 100px;
 }
 .form-data {
     max-width: 500px;
-    font-family: 'Times New Roman', Times, serif;
 }
-.card-head p{
+.card-head h1 {
+    font-size: 39px;
+}
+.card-head span{
+    padding-bottom: 10px;
     font-size: 20px;
+    font-weight: 300;
     display: flex;
     justify-content: flex-start;
+}
+.form-data p {
+    font-weight: 10;
+    font-size: 13px;
 }
 .form-data > div {
     margin-top: 10px;
 }
-.price>div:nth-child(1) {
-    border: 1px solid gray;
+.price > div:nth-child(1) {
     display: flex;
     padding: 20px;
     gap: 10px;
 }
-.price1>div {
-    border: 1px solid gray;
-    max-width: 50px;
-    min-height: 50px;
+.price-button {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    gap: 13px;
+}
+.price-button button {
+
+    padding: 10px 10px 10px 10px;
+    background-color: transparent;
+    border: 1px solid black;
 }
 .counting {
     margin-top: 10px;
     max-width:100px;
-    min-height:100px;
+    padding-bottom: 10px;
+
 }
-.card-for>div {
-    display: flex;
-    gap: 10px;
+.card-for > div {
+    padding-top: 10px;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    max-width: 400px;
+    gap: 20px;
 }
-.card-for>div>button {
-    max-width: 200px;
+.card-for > div > button {
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 5px 5px 5px 5px;
+
 }
 .gift-form {
     display: flex;
     flex-direction: column;
     margin-top: 10px;
 }
+.gift-form label{
+    font-weight: 10;
+    font-size: 13px;
+}
 .gift-form input{
     max-width: 400px;
     min-height: 50px;
     margin-bottom: 10px;
 }
-.gift-form input:last-of-type{
+textarea {
     min-height: 100px;
+    max-width: 400px;
+    margin-bottom: 10px;
 }
 .gift-form button{
     max-width: 410px;
     min-height: 50px;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 .gift-form button:nth-of-type(1){
     background-color: black;
@@ -71,6 +96,7 @@
 }
 .gift-form button:nth-of-type(2){
     margin-top: 10px;
+    margin-bottom: 10px;
     background-color: transparent;
     border: 1px solid black;
     color: black;
@@ -78,6 +104,8 @@
 @media screen and (max-width:680px) {
     .gift {
         flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
     }
     .form-data {
         max-width: 300px;
