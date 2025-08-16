@@ -1,3 +1,22 @@
-section > div h2{
-  margin-top: 60px;
+.faq-head {
+  padding-top: 60px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.faq-card {
+  border: 1px solid black;
+  padding: 20px;
+  background-color: transparent;
+  margin-bottom: 30px;
+  max-width: 600px;
+  min-height: 100px;
+}
+.faq-card h4 {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.faq-container {
+  margin-bottom: 20px;
+  display:grid;
+  place-content: center;
 }
