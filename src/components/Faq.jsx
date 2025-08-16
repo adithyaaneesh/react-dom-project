@@ -9,8 +9,10 @@ const Faq = () => {
   return (
     <section>
       <div className='container'>
-        <h2>FAQ</h2>
-        <p>Frequently Asked Questions</p>
+        <div className='faq-head'>
+          <h2>FAQ</h2>
+          <p>Frequently Asked Questions</p>
+        </div>
         <div className="faq-container">
           {
             FaqList.map((item, idx) => <FaqCard data={item} key={idx}/> )
