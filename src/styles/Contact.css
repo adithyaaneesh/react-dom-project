@@ -38,9 +38,10 @@
     border-radius: 5px;
     box-sizing: border-box;
 }
-textarea {
-  min-height: 100px;
-  width: 100%;
+.contactform-group textarea {
+    /* background-color: #555; */
+    min-height: 100px;
+    width: 900px;
 }
 .sub-button {
     width: 100%;

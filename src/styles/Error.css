@@ -2,10 +2,14 @@
     margin-top: 30px;
     display: grid;
     place-content: center;
-    min-height: 300px;
+    min-height: 500px;
     font-size: 30px;
+    background-color: rgba(232, 230, 230, 0.35);
 }
 .error h1 {
     color:rgb(78, 77, 77);
+}
+.error p {
+    font-size: 20px;
 }
 
