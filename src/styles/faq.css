@@ -1,3 +1,7 @@
+.faq {
+  background-color: rgba(232, 230, 230, 0.35);
+
+}
 .faq-head {
   padding-top: 60px;
   text-align: center;
@@ -15,8 +19,7 @@
   text-align: center;
   padding-bottom: 20px;
 }
-.faq-container {
-  margin-bottom: 20px;
+.faqcard-container {
   display:grid;
   place-content: center;
 }
