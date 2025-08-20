@@ -18,8 +18,8 @@ const ShopCard = ({ data }) => {
         localStorage.setItem("cart", JSON.stringify(cart));
         window.dispatchEvent(new Event("cartUpdated"));
 
-        // throw Error('Cannot add, Something went wrong')
     };
+
 
     return (
         <div className="product-card">

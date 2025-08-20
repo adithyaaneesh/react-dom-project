@@ -18,6 +18,7 @@ import User from './components/User';
 import React, { Suspense } from 'react';
 import LazyLoader from './data/LazyLoader';
 import ErrorBoundary from './data/ErrorBoundary';
+import Search from './components/Search';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -54,7 +55,8 @@ const LazyLoad = React.lazy(() => import('./data/LazyLoader'));
           <Route path='/contact' element={<Contact/>}/>
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/user' element={<User/>}/>
-          <Route path='*' element={<Error/>}/>
+          <Route path='/search' element={<Search/>}/>
+          {/* <Route path='*' element={<Error/>}/> */}
           
         </Routes>
       </Suspense>
