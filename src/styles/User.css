@@ -35,6 +35,7 @@
 .loading-message,
 .error-message,
 .no-data-message {
+    margin-top: 60px;
     font-size: 1.2rem;
     color: #666;
     text-align: center;
