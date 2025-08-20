@@ -15,6 +15,9 @@ import Register from './components/Register';
 import Cart from './components/Cart';
 import ProtectedRoutes from './hooks/useProtectedRoutes';
 import User from './components/User';
+import React, { Suspense } from 'react';
+import LazyLoader from './data/LazyLoader';
+import ErrorBoundary from './data/ErrorBoundary';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -24,29 +27,42 @@ import User from './components/User';
 
 
 
-function App() {
+const App = () => {
 
+
+const LazyLoad = React.lazy(() => import('./data/LazyLoader'));
+      // <Suspense fallback={<LazyLoader/>}>
+      //   <About />
+      // </Suspense>
 
   return (
   <>
-  <BrowserRouter>
-      <Header />
-      <ProtectedRoutes/>
-    <Routes>
-        <Route path='/' element={<HomePage/>}/>
-        <Route path='/shop' element={<Shop/>}/>
-        <Route path='/about' element={<About/>}/>
-        <Route path='/faq' element={<Faq/>}/>
-        <Route path='/gift' element={<Gift/>}/>
-        <Route path='/contact' element={<Contact/>}/>
-        <Route path='/login' element={<Login/>}/>
-        <Route path='/register' element={<Register/>}/>
-        <Route path='/cart' element={<Cart/>}/>
-        <Route path='/user' element={<User/>}/>
-        <Route path='*' element={<Error/>}/>
-    </Routes>
-      <Footer />
+    <BrowserRouter>
+    <Header />
+    <ProtectedRoutes/>
+    <ErrorBoundary fallback={<div>Something went wrong</div>}>
+      <Suspense fallback={<LazyLoader/>}>
+        <Routes>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/register' element={<Register/>}/>
+          
+          <Route path='/' element={<HomePage/>}/>
+          <Route path='/shop' element={<Shop/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/faq' element={<Faq/>}/>
+          <Route path='/gift' element={<Gift/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/cart' element={<Cart/>}/>
+          <Route path='/user' element={<User/>}/>
+          <Route path='*' element={<Error/>}/>
+          
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
+    <Footer />
     </BrowserRouter>
+    
+
   </>
   );
 }

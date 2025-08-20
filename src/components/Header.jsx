@@ -44,9 +44,9 @@ const Header = () => {
                         <li><Link to={'/gift'}>Gift Card</Link></li>
                         <li><Link to={'/contact'}>Contact</Link></li>
                        </div>
-                        <li>
-                            <div class="header-icons">
-                                <div class="search-box">
+                        {/* <li> */}
+                            <div className="header-icons">
+                                <div className="search-box">
                                     <Link to="/shop" className="user-icon"><img src='/images/search.svg' alt="#" />
                                     </Link>
                                     
@@ -70,7 +70,7 @@ const Header = () => {
                                 </Link>
                                 </div>
                             </div>
-                        </li>
+                        {/* </li> */}
                     </ul>
                 </div>
             </nav>  

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { FaUserCircle } from 'react-icons/fa';
@@ -9,6 +9,7 @@ const User = () =>  {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    // const AuthProvider = useContext(AuthContext)
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
