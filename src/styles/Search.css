@@ -34,3 +34,9 @@
     text-align: center;
     font-size: 40px;
 }
+@media screen and (max-width:680px) {
+    .product-main {
+        padding-top: 90px;
+    }
+    
+}
