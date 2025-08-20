@@ -44,6 +44,9 @@
 small{
     color: white;
 }
+.query input:focus{
+    outline: none;
+}
 .query input{
     background-color: transparent;
     border-bottom: 2px solid white;

@@ -47,7 +47,7 @@ const Header = () => {
                         {/* <li> */}
                             <div className="header-icons">
                                 <div className="search-box">
-                                    <Link to="/shop" className="user-icon"><img src='/images/search.svg' alt="#" />
+                                    <Link to="/search" className="user-icon"><img src='/images/search.svg' alt="#" />
                                     </Link>
                                     
                                     {/* <input type="text" placeholder="Search"/> */}
