@@ -74,7 +74,9 @@ const Cart = () => {
                                     </div>
                                 </div>
                                 <div className="item-actions">
-                                    <button onClick={() => removeItem(item.id)}>Remove</button>
+                                    <button onClick={() => removeItem(item.id)}>
+                                        <img src='/images/trash.svg'/>
+                                    </button>
                                 </div>
                             </div>
                         ))}

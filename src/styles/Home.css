@@ -1,0 +1,8 @@
+.banner {
+    margin-top: 10px;
+    min-height: 600px;
+}
+.banner button {
+    display: grid;
+    place-content: center;
+}

@@ -12,6 +12,80 @@
 .product-list {
     padding-top: 60px;
 }
+.add-to-cart-btn {
+    max-width: 200px;
+    padding: 15px;
+    border: 1px solid black;
+    background-color: white;
+    color:black;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: black;
+    color: white;
+}
+.product-main {
+    padding-top: 60px;
+}
+.search-icon {
+    text-align: center;
+    max-width: 20px;
+    min-height: 20px;
+}
+.input-bar {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+.input-bar:focus{
+    outline: none;
+}
+.products {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    padding: 10px;
+}
+.product-card-link{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.input-container {
+    
+    text-align: start;
+    font-size: 40px;
+}
+.slider-container {
+    max-width: 200px;
+    margin-bottom: 30px;
+}
+.price-slider .MuiSlider-thumb {
+    max-width: 12px;
+    min-height:5px ;
+    background-color: #393a3a;
+}
+
+.price-slider .MuiSlider-track {
+    background-color: black;
+}
+
+.price-slider .MuiSlider-rail {
+    background-color: #ccc;
+
+}
+@media screen and (max-width:680px) {
+    .product-main {
+        padding-top: 90px;
+    }
+    
+}
 @media screen and (max-width:680px) {
     .cards {
         grid-template-columns: 1fr;

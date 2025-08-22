@@ -19,6 +19,7 @@ import React, { Suspense } from 'react';
 import LazyLoader from './data/LazyLoader';
 import ErrorBoundary from './data/ErrorBoundary';
 import Search from './components/Search';
+import ProductView from './components/ProductView';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -49,6 +50,7 @@ const LazyLoad = React.lazy(() => import('./data/LazyLoader'));
           
           <Route path='/' element={<HomePage/>}/>
           <Route path='/shop' element={<Shop/>}/>
+          <Route path="/product-view/:id" element={<ProductView />}/>
           <Route path='/about' element={<About/>}/>
           <Route path='/faq' element={<Faq/>}/>
           <Route path='/gift' element={<Gift/>}/>
@@ -56,6 +58,7 @@ const LazyLoad = React.lazy(() => import('./data/LazyLoader'));
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/user' element={<User/>}/>
           <Route path='/search' element={<Search/>}/>
+          <Route path='/productview' element={<ProductView/>}/>
           {/* <Route path='*' element={<Error/>}/> */}
           
         </Routes>
