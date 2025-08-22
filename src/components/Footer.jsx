@@ -2,7 +2,7 @@ import React from 'react'
 import '../styles/Footer.css'
 const Footer = () => {
   return (
-    <section>
+    <footer>
       <div className='container'>
         <div className='footer-content'>
           <div className='foot-content'>
@@ -39,7 +39,7 @@ const Footer = () => {
           <p>© 2035 by Tote. Powered and secured by <span>Wix</span></p>
         </div>
       </div>
-    </section>
+    </footer>
   )
 }
 

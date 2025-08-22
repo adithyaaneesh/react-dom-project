@@ -3,7 +3,13 @@ import '../styles/ShopCard.css'
 import { useNavigate } from 'react-router-dom';
 
 const ShopCard = ({ data }) => {
+
+
+
     const navigate = useNavigate();
+    const handleImageClick = () => {
+        navigate(`/product-view/${data.id}`);
+    };
 
     const handleAddToCart = () => {
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -19,8 +25,6 @@ const ShopCard = ({ data }) => {
         window.dispatchEvent(new Event("cartUpdated"));
 
     };
-
-
     return (
         <div className="product-card">
             {data.status && (
@@ -29,7 +33,12 @@ const ShopCard = ({ data }) => {
                     
                 </div>
             )}
-            <img src={data.image} alt={data.title} className="product-image" />
+            <img 
+            src={data.image} 
+            alt={data.title} 
+            className="product-image" 
+            onClick={handleImageClick}
+            />
             <p className="product-title">{data.title}</p>
             <div className="product-price">
                 {data.salePrice ? (
@@ -47,3 +56,4 @@ const ShopCard = ({ data }) => {
 };
 
 export default ShopCard;
+
