@@ -20,6 +20,10 @@ import LazyLoader from './data/LazyLoader';
 import ErrorBoundary from './data/ErrorBoundary';
 import Search from './components/Search';
 import ProductView from './components/ProductView';
+import PublicLayout from './layout/PublicLayout';
+import AuthLayout from './layout/AuthLayout';
+import AdminLayout from './layout/AdminLayout';
+import Dashboard from './components/Dashboard';
 // import Magnet from './components/Magnet';
 
 // import toast, { Toaster } from 'react-hot-toast';
@@ -40,36 +44,35 @@ const LazyLoad = React.lazy(() => import('./data/LazyLoader'));
   return (
   <>
     <BrowserRouter>
-    <Header />
     <ProtectedRoutes/>
     <ErrorBoundary fallback={<div>Something went wrong</div>}>
       <Suspense fallback={<LazyLoader/>}>
         <Routes>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          
-          <Route path='/' element={<HomePage/>}/>
-          <Route path='/shop' element={<Shop/>}/>
-          <Route path="/product-view/:id" element={<ProductView />}/>
-          <Route path='/about' element={<About/>}/>
-          <Route path='/faq' element={<Faq/>}/>
-          <Route path='/gift' element={<Gift/>}/>
-          <Route path='/contact' element={<Contact/>}/>
-          <Route path='/cart' element={<Cart/>}/>
-          <Route path='/user' element={<User/>}/>
-          <Route path='/search' element={<Search/>}/>
-          <Route path='/productview' element={<ProductView/>}/>
-          {/* <Route path='*' element={<Error/>}/> */}
-          
+          <Route element={<AuthLayout/>}>
+            <Route path='/login' element={<Login/>}/>
+            <Route path='/register' element={<Register/>}/>
+          </Route>
+          <Route element={<PublicLayout/>}>
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='/shop' element={<Shop/>}/>
+            <Route path="/product-view/:id" element={<ProductView />}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/faq' element={<Faq/>}/>
+            <Route path='/gift' element={<Gift/>}/>
+            <Route path='/productview' element={<ProductView/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/cart' element={<Cart/>}/>
+            <Route path='/user' element={<User/>}/>
+          </Route>
+          <Route path="*" element={<Error />} />
+          <Route element={<ProtectedRoutes><AdminLayout /></ProtectedRoutes>}>
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+          </Route>
         </Routes>
       </Suspense>
     </ErrorBoundary>
-    <Footer />
     </BrowserRouter>
-    
-
   </>
   );
-}
-
+};
 export default App;

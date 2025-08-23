@@ -23,12 +23,10 @@ const Header = () => {
     <header>
       <div className="container">
         <nav className="menu-items">
-          {/* Brand Section */}
           <div className="brand">
             <h3>Tote</h3>
             <p>Frunky Printed Bags</p>
           </div>
-          {/* Nav Links */}
           <ul className="nav-links">
             <li><Link to="/">Home</Link></li>
             <li><Link to="/shop">Shop</Link></li>
