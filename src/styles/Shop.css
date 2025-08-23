@@ -30,7 +30,7 @@
     color: white;
 }
 .product-main {
-    padding-top: 60px;
+    padding-top: 10px;
 }
 .search-icon {
     text-align: center;
@@ -82,7 +82,7 @@
 }
 @media screen and (max-width:680px) {
     .product-main {
-        padding-top: 90px;
+        padding-top: 10px;
     }
     
 }
@@ -90,5 +90,17 @@
     .cards {
         grid-template-columns: 1fr;
     }
-    
+    .slider-container {
+        padding: 2px;
+        max-width: 100px;
+        margin-bottom: 30px;
+    }
+    .sort-options p {
+        font-size: small;
+    }
+    .sort-options > select > option{
+        font-size: 9px;
+        max-width: 100px;
+    }
+
 }

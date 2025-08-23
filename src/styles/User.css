@@ -61,3 +61,8 @@
 .logout-button:hover {
     background-color: rgb(69, 69, 69);
 }
+@media screen and (max-width:680px) {
+    .loading-message {
+        margin-top: 20px;
+    }
+}

@@ -79,6 +79,17 @@ small{
 @media screen and (max-width:680px) {
     .footer-content {
         flex-direction: column;
+        gap: 0;
+    }
+    .foot-content {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .foot-content + p{
+        margin-bottom: 10px;
+    }
+    .query {
+        margin-bottom: 10px;
     }
     
 }
