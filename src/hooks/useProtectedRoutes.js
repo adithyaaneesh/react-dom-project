@@ -1,4 +1,4 @@
-import React, { Children, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 const ProtectedRoutes = ( { children }) => { 
