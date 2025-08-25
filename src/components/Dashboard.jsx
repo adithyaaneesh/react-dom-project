@@ -1,58 +1,74 @@
-import { AppBar, Box, Button, Card, CardActions, CardContent, Divider, Drawer, Grid, Grow, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material';
 import * as React from 'react';
-import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
 import CategoryIcon from '@mui/icons-material/Category';
-import InventoryIcon from '@mui/icons-material/Inventory';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SettingsIcon from '@mui/icons-material/Settings';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
+import CardContent from '@mui/material/CardContent';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import PeopleIcon from '@mui/icons-material/People';
+import CollectionsIcon from '@mui/icons-material/Collections';
+import PaymentIcon from '@mui/icons-material/Payment';
+import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 
 
 
+const drawerWidth = 200;
+const items = [
+  { text: "Orders", icon: <CategoryIcon /> },
+  { text: "Products", icon: <ShoppingCartIcon /> },
+  { text: "Customers", icon: <PeopleIcon /> },
+  { text: "Collections", icon: <CollectionsIcon /> },
 
-const DashBoard = () => {
-    const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: (theme.vars ?? theme).palette.text.secondary,
-    ...theme.applyStyles('dark', {
-      backgroundColor: '#1A2027',
-    }),
-  }));
-  
-  const [open, setOpen] = React.useState(false);
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
+];
+const listItems = [
+  { text: 'Analytics', icon: <TrendingUpIcon /> },
+  { text: "Settings", icon: <SettingsIcon />}, 
+  { text: "Return/Refunds", icon: <PaymentIcon/>},
+]
+const Dashboard = () => {
+const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
-  const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
-    <Typography variant="h6" textAlign="center" component="div" sx={{ flexGrow: 1 }}>
-        Urban Tote Co.
-    </Typography>
+  const drawerContent = (
+    <Box sx={{ width: drawerWidth }}>
+      <Typography variant="h6" component="h6" sx={{ textAlign: 'center', py: 2 }}>
+        Urban Tote Co. <ShoppingBagIcon />
+      </Typography>
+      <Divider />
       <List>
-        {['Orders', 'Products','Customers', 'Collections'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {items.map((item) => (
+          <ListItem key={item.text} disablePadding>
             <ListItemButton>
-              <ListItemIcon>                
-                {index % 2 === 0 ? <CategoryIcon /> : <InventoryIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
       <Divider />
       <List>
-        {['Analytics', 'Settings' , 'Returns/Refunds', 'Review/Ratings'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {listItems.map((listItems) => (
+          <ListItem key={listItems.text} disablePadding>
             <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <TrendingUpIcon /> : <SettingsIcon /> }
-              </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemIcon>{listItems.icon}</ListItemIcon>
+              <ListItemText primary={listItems.text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -60,51 +76,129 @@ const DashBoard = () => {
     </Box>
   );
   return (
-    <Box sx={{ flexGrow: 1 , width: "100%" }}>
-      <AppBar position="static" color='secondary'>
+    <Box sx={{ display: 'flex' }}>
+      <AppBar
+        position="fixed"
+        sx={{
+          width: open ? `calc(100% - ${drawerWidth}px)` : '100%',
+          ml: open ? `${drawerWidth}px` : 0,
+          transition: 'all 0.3s ease',
+        }}
+        color='secondary'
+      >
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={toggleDrawer(true)}
-          >
+          <IconButton edge="start" color="inherit" onClick={toggleDrawer} sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            DashBoard
+          <Typography variant="h6" noWrap component="div">
+            Dashboard
           </Typography>
-          <Button color="inherit"><img src="/images/userpass.svg" alt="Login" /></Button>
         </Toolbar>
       </AppBar>
-      <Drawer open={open} onClose={toggleDrawer(false)}>
-        {DrawerList}
+      <Drawer variant="persistent" anchor="left" open={open} 
+      sx={{
+          '& .MuiDrawer-paper': {
+            // width: drawerWidth,
+            boxSizing: 'border-box',
+            bgcolor: '#e1bee7',
+            color: 'black',
+          },
+        }}>
+        {drawerContent}
       </Drawer>
-       <Grid container spacing={2} direction="row"
-          sx={{
-            justifyContent: "center",
-            alignItems: "center",
-          }}>
-        <Grid size={8}>
-          <Item sx={{ height: '200px', boxSizing: 'border-box' }}>Sales</Item>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          // p: 3,
+          ml: open ? `${drawerWidth}px` : 0,
+          transition: 'all 0.3s ease',
+        }}
+      >
+        <Toolbar />
+        <Grid container spacing={1}>
+          <Grid item xs={12} md={4} size={8}>
+            <Card sx={{ minHeight: 100, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Total Orders</Typography>
+                <Typography variant="h4" sx={{ color: 'primary.main' }}>
+                  1,245
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">View Orders</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4} size={4}>
+            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Total Products</Typography>
+                <Typography variant="h4" sx={{ color: 'secondary.main' }}>
+                  356
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Manage Products</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4} size={4}>
+            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Customers</Typography>
+                <Typography variant="h4" sx={{ color: 'success.main' }}>
+                  890
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">View Customers</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4} size={8}>
+            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Payment</Typography>
+                <Typography variant="h4" sx={{ color: 'success.main' }}>
+                  890
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">View Payment</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4} size={6}>
+            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Return and refund</Typography>
+                <Typography variant="h4" sx={{ color: 'success.main' }}>
+                  890
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">View Returns & Refunds</Button>
+              </CardActions>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4} size={6}>
+            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
+              <CardContent>
+                <Typography variant="h6" gutterBottom>Updates</Typography>
+                <Typography variant="h4" sx={{ color: 'success.main' }}>
+                  890
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">View Update Log</Button>
+              </CardActions>
+            </Card>
+          </Grid>
         </Grid>
-        <Grid size={4}>
-          <Item sx={{ height: '200px', boxSizing: 'border-box' }}>Revenue</Item>
-        </Grid>
-        <Grid size={4}>
-          <Item sx={{ height: '200px', boxSizing: 'border-box' }}>Update</Item>
-        </Grid>
-        <Grid size={8}>
-          <Item sx={{ height: '200px', boxSizing: 'border-box' }}>Expenses</Item>
-        </Grid>
-        <Grid size={8}>
-          <Item sx={{ height: '200px', boxSizing: 'border-box' }}>Customer Review</Item>
-        </Grid>
-        
-      </Grid>
+      </Box>
     </Box>
+
   );
 }
-export default DashBoard
+export default Dashboard
