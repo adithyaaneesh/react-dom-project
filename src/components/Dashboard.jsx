@@ -1,204 +1,164 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import CategoryIcon from '@mui/icons-material/Category';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import SettingsIcon from '@mui/icons-material/Settings';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import PeopleIcon from '@mui/icons-material/People';
-import CollectionsIcon from '@mui/icons-material/Collections';
-import PaymentIcon from '@mui/icons-material/Payment';
-import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
-
-
-
-const drawerWidth = 200;
-const items = [
-  { text: "Orders", icon: <CategoryIcon /> },
-  { text: "Products", icon: <ShoppingCartIcon /> },
-  { text: "Customers", icon: <PeopleIcon /> },
-  { text: "Collections", icon: <CollectionsIcon /> },
-
-];
-const listItems = [
-  { text: 'Analytics', icon: <TrendingUpIcon /> },
-  { text: "Settings", icon: <SettingsIcon />}, 
-  { text: "Return/Refunds", icon: <PaymentIcon/>},
-]
-const Dashboard = () => {
-const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const drawerContent = (
-    <Box sx={{ width: drawerWidth }}>
-      <Typography variant="h6" component="h6" sx={{ textAlign: 'center', py: 2 }}>
-        Urban Tote Co. <ShoppingBagIcon />
-      </Typography>
-      <Divider />
-      <List>
-        {items.map((item) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {listItems.map((listItems) => (
-          <ListItem key={listItems.text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{listItems.icon}</ListItemIcon>
-              <ListItemText primary={listItems.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-  return (
-    <Box sx={{ display: 'flex' }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          width: open ? `calc(100% - ${drawerWidth}px)` : '100%',
-          ml: open ? `${drawerWidth}px` : 0,
-          transition: 'all 0.3s ease',
-        }}
-        color='secondary'
-      >
-        <Toolbar>
-          <IconButton edge="start" color="inherit" onClick={toggleDrawer} sx={{ mr: 2 }}>
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Dashboard
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Drawer variant="persistent" anchor="left" open={open} 
-      sx={{
-          '& .MuiDrawer-paper': {
-            // width: drawerWidth,
-            boxSizing: 'border-box',
-            bgcolor: '#e1bee7',
-            color: 'black',
-          },
-        }}>
-        {drawerContent}
-      </Drawer>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          // p: 3,
-          ml: open ? `${drawerWidth}px` : 0,
-          transition: 'all 0.3s ease',
-        }}
-      >
-        <Toolbar />
-        <Grid container spacing={1}>
-          <Grid item xs={12} md={4} size={8}>
-            <Card sx={{ minHeight: 100, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Total Orders</Typography>
-                <Typography variant="h4" sx={{ color: 'primary.main' }}>
-                  1,245
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Orders</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4} size={4}>
-            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Total Products</Typography>
-                <Typography variant="h4" sx={{ color: 'secondary.main' }}>
-                  356
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Manage Products</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4} size={4}>
-            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Customers</Typography>
-                <Typography variant="h4" sx={{ color: 'success.main' }}>
-                  890
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Customers</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4} size={8}>
-            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Payment</Typography>
-                <Typography variant="h4" sx={{ color: 'success.main' }}>
-                  890
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Payment</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4} size={6}>
-            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Return and refund</Typography>
-                <Typography variant="h4" sx={{ color: 'success.main' }}>
-                  890
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Returns & Refunds</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={4} size={6}>
-            <Card sx={{ minHeight: 150, boxShadow: 3 }}>
-              <CardContent>
-                <Typography variant="h6" gutterBottom>Updates</Typography>
-                <Typography variant="h4" sx={{ color: 'success.main' }}>
-                  890
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View Update Log</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
-      </Box>
-    </Box>
-
-  );
-}
-export default Dashboard
+// import * as React from 'react';
+// import { styled, useTheme } from '@mui/material/styles';
+// import Box from '@mui/material/Box';
+// import MuiDrawer from '@mui/material/Drawer';
+// import MuiAppBar from '@mui/material/AppBar';
+// import Toolbar from '@mui/material/Toolbar';
+// import List from '@mui/material/List';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import Typography from '@mui/material/Typography';
+// import Divider from '@mui/material/Divider';
+// import IconButton from '@mui/material/IconButton';
+// import MenuIcon from '@mui/icons-material/Menu';
+// import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+// import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+// import ListItem from '@mui/material/ListItem';
+// import ListItemButton from '@mui/material/ListItemButton';
+// import ListItemIcon from '@mui/material/ListItemIcon';
+// import ListItemText from '@mui/material/ListItemText';
+// import SettingsIcon from '@mui/icons-material/Settings';
+// import PeopleIcon from '@mui/icons-material/People';
+// import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import PaymentIcon from '@mui/icons-material/Payment';
+// import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+// import DashboardIcon from '@mui/icons-material/Dashboard';
+// import InventoryIcon from '@mui/icons-material/Inventory';
+// import Avatar from '@mui/material/Avatar';
+// import Stack from '@mui/material/Stack';
+// import DashboardPage from '../pages/admin/Dashboard';
+// const drawerWidth = 240;
+// const openedMixin = (theme) => ({
+//   width: drawerWidth,
+//   transition: theme.transitions.create('width', {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.enteringScreen,
+//   }),
+//   overflowX: 'hidden',
+// });
+// const closedMixin = (theme) => ({
+//   transition: theme.transitions.create('width', {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.leavingScreen,
+//   }),
+//   overflowX: 'hidden',
+//   width: `calc(${theme.spacing(7)} + 1px)`,
+//   [theme.breakpoints.up('sm')]: {
+//     width: `calc(${theme.spacing(8)} + 1px)`,
+//   },
+// });
+// const DrawerHeader = styled('div')(({ theme }) => ({
+//   display: 'flex',
+//   alignItems: 'center',
+//   justifyContent: 'space-between',
+//   padding: theme.spacing(0, 1),
+//   ...theme.mixins.toolbar,
+// }));
+// const AppBar = styled(MuiAppBar, {
+//   shouldForwardProp: (prop) => prop !== 'open',
+// })(({ theme, open }) => ({
+//   zIndex: theme.zIndex.drawer + 1,
+//   transition: theme.transitions.create(['width', 'margin'], {
+//     easing: theme.transitions.easing.sharp,
+//     duration: theme.transitions.duration.leavingScreen,
+//   }),
+//   ...(open && {
+//     marginLeft: drawerWidth,
+//     width: `calc(100% - ${drawerWidth}px)`,
+//     transition: theme.transitions.create(['width', 'margin'], {
+//       easing: theme.transitions.easing.sharp,
+//       duration: theme.transitions.duration.enteringScreen,
+//     }),
+//   }),
+// }));
+// const Drawer = styled(MuiDrawer, {
+//   shouldForwardProp: (prop) => prop !== 'open',
+// })(({ theme, open }) => ({
+//   width: drawerWidth,
+//   flexShrink: 0,
+//   whiteSpace: 'nowrap',
+//   boxSizing: 'border-box',
+//   ...(open && {
+//     ...openedMixin(theme),
+//     '& .MuiDrawer-paper': openedMixin(theme),
+//   }),
+//   ...(!open && {
+//     ...closedMixin(theme),
+//     '& .MuiDrawer-paper': closedMixin(theme),
+//   }),
+// }));
+// const items = [
+//   { text: "Dashboard", icon: <DashboardIcon />},
+//   { text: "Products", icon: <InventoryIcon /> },
+//   { text: "Order", icon: <ShoppingCartIcon /> },
+//   { text: "Customers", icon: <PeopleIcon /> },
+//   { text: "Return/Refunds", icon: <PaymentIcon/>},
+//   { text: 'Analytics', icon: <TrendingUpIcon /> },
+//   { text: "Settings", icon: <SettingsIcon />}, 
+// ]
+// const Dashboard = () => {
+//   const theme = useTheme();
+//   const [open, setOpen] = React.useState(false);
+//   const handleDrawerOpen = () => {
+//     setOpen(true);
+//   };
+//   const handleDrawerClose = () => {
+//     setOpen(false);
+//   };
+//   return (
+//     <Box sx={{ display: 'flex' }}>
+//       <CssBaseline />
+//       <AppBar position="fixed" open={open}>
+//         <Toolbar>
+//           <IconButton
+//             color="inherit"
+//             aria-label="open drawer"
+//             onClick={handleDrawerOpen}
+//             edge="start"
+//             sx={{
+//               marginRight: 5,
+//               ...(open && { display: 'none' }),
+//             }}
+//           >
+//             <MenuIcon />
+//           </IconButton>
+//           <Typography variant="h6" noWrap component="div">
+//             Dashboard
+//           </Typography>
+//           <Stack direction="row" spacing={2} sx={{marginLeft:'auto'}}>
+//             <Avatar sx={{ bgcolor:'white' , width: 36, height: 36 , }}
+//             alt="Cindy Baker"
+//             src="/images/femaleavatar.jpg" />
+//           </Stack>
+//         </Toolbar>
+//       </AppBar>
+//       <Drawer variant="permanent" open={open}>
+//         <DrawerHeader>
+//           <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+//             Urban Tote Co.
+//           </Typography>
+//           <IconButton onClick={handleDrawerClose}>
+//             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+//           </IconButton>
+//         </DrawerHeader>
+//         <Divider />
+//        <List>
+//           {items.map((item) => (
+//             <ListItem key={item.text} disablePadding>
+//               <ListItemButton
+//                 sx={{ color: "black", "&:hover": { bgcolor: "grey.200" } }}
+//               >
+//                 <ListItemIcon sx={{ color: "black" }}>{item.icon}</ListItemIcon>
+//                 <ListItemText primary={item.text} />
+//               </ListItemButton>
+//             </ListItem>
+//           ))}
+//         </List>
+//       </Drawer>
+//       <Box component="main" sx={{ flexGrow: 1 }}>
+//         <DrawerHeader />
+//             <DashboardPage/>
+//       </Box>
+//     </Box>
+//   );
+// }
+// export default Dashboard
