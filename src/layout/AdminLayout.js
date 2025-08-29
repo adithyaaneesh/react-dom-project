@@ -25,9 +25,13 @@ import InventoryIcon from '@mui/icons-material/Inventory';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
-import { Collapse } from '@mui/material';
+import { Button, Collapse, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Popper } from '@mui/material';
 import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+
 
 const drawerWidth = 240;
 const openedMixin = (theme) => ({
@@ -95,12 +99,14 @@ const items = [
   { text: "Dashboard", icon: <DashboardIcon />, path: '/admin/dashboard' },
   {
     text: "Products", icon: <InventoryIcon />, children: [
-      { text: "All Products", path: "/admin/product" },
-      { text: "Add Product", path: "/admin/product/add" },
-      { text: "Edit Product", path: "/admin/product/edit" },
+      { text: "All Products", path: "/admin/products" },
+      { text: "Add Product", path: "/admin/products/add" },
     ]
   },
-  { text: "Order", icon: <ShoppingCartIcon />, path: '/admin/order' },
+  { text: "Order", icon: <ShoppingCartIcon />, children: [
+      { text: "Order List", path: "/admin/orders" },
+      { text: "Order Details", path: "/admin/orders/details" },
+    ] },
   { text: "Customers", icon: <PeopleIcon />, path: '/admin/customer' },
   { text: 'Analytics', icon: <TrendingUpIcon />, path: '/admin/analytics' },
   { text: "Settings", icon: <SettingsIcon />, path: '/admin/settings' },
@@ -113,6 +119,29 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [openDialog, setOpenDialog] = React.useState(false);
+
+
+  const handleLogoutClick = () => setOpenDialog(true);
+  const handleCloseDialog = () => setOpenDialog(false);
+
+
+  const logout = () => {
+
+    localStorage.removeItem("loggedInUser");
+    navigate("/admin/login");
+  };
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleIconClick = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+
+  const Iconopen = Boolean(anchorEl);
+  const id = Iconopen ? 'simple-popper' : undefined;
+
   const handleDrawerOpen = () => setOpen(true);
   const handleDrawerClose = () => setOpen(false);
 
@@ -120,18 +149,17 @@ const Dashboard = () => {
     setOpenDropdown((prev) => ({ ...prev, [menu]: !prev[menu] }));
   };
 
-  // 🔥 Advanced active style
   const getItemStyles = (isActive) => ({
     minHeight: 48,
     justifyContent: open ? 'initial' : 'center',
     px: 2.5,
-    bgcolor: isActive ? "primary.light" : "transparent",
+    bgcolor: isActive ? "#f7cadd" : "transparent",
     color: isActive ? "black" : "black",
     "& .MuiSvgIcon-root": { color: "black" },
 
     borderRadius: 3,
     "&:hover": {
-      bgcolor: isActive ? "primary.light" : "grey.200",
+      bgcolor: isActive ? "#f7cadd" : "#fae0eb",
       color: "black",
       "& .MuiSvgIcon-root": { color: "blue" }
     }
@@ -140,7 +168,11 @@ const Dashboard = () => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{
+                background: " #fceaef",
+                color:'black'
+
+      }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -149,6 +181,7 @@ const Dashboard = () => {
             sx={{
               marginRight: 5,
               ...(open && { display: 'none' }),
+              
             }}
           >
             <MenuIcon />
@@ -157,15 +190,33 @@ const Dashboard = () => {
             Dashboard
           </Typography>
           <Stack direction="row" spacing={2} sx={{ marginLeft: 'auto' }}>
-            <Avatar sx={{ width: 36, height: 36 }}
+            {/* <Button color='inherit' onClick={handleLogoutClick}>LOGOUT </Button> */}
+            <AccountCircleIcon onClick={handleIconClick} sx={{ width: 36, height: 36 }} />
+            <Popper id={id} open={Iconopen} anchorEl={anchorEl}>
+              <Box sx={{ border: 2, p: 1, mt:2, bgcolor: 'white',
+                "&:hover": {
+                    bgcolor: "#fae0eb",
+                    color: "black",
+                  }
+               }}>
+                <Button color='inherit' onClick={handleLogoutClick}>LOGOUT </Button>
+              </Box>
+            </Popper>
+            {/* <AccountCircleIcon sx={{ width: 36, height: 36 }} /> */}
+            {/* <Avatar sx={{ width: 36, height: 36 }}
               alt="Cindy Baker"
-              src="/images/femaleavatar.jpg" />
+              src="/images/femaleavatar.jpg"
+               /> */}
           </Stack>
         </Toolbar>
       </AppBar>
+      <Drawer variant="permanent" open={open} sx={{ mr: 1 ,
+      // '& .MuiDrawer-paper':{
+      //   background: "linear-gradient(180deg, #fceaef 20%, #f9d4de 90%)",
 
-      {/* Drawer */}
-      <Drawer variant="permanent" open={open} sx={{ mr: 1 }}>
+      // }
+        
+        }}>
         <DrawerHeader>
           <Avatar sx={{ width: 36, height: 36 }}
             alt="Cindy Baker"
@@ -210,8 +261,6 @@ const Dashboard = () => {
                       primary={item.text}
                       sx={{ opacity: open ? 1 : 0 }}
                     />
-
-                    {/* arrow indicator for dropdown */}
                     {item.children && open && (
                       <KeyboardArrowDownIcon
                         sx={{
@@ -223,7 +272,6 @@ const Dashboard = () => {
                   </ListItemButton>
                 </ListItem>
 
-                {/* Dropdown children */}
                 {item.children && (
                   <Collapse in={openDropdown[item.text] && open} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
@@ -264,6 +312,28 @@ const Dashboard = () => {
         <DrawerHeader />
         <Outlet />
       </Box>
+      <Dialog 
+        open={openDialog}
+        onClose={handleCloseDialog}
+        aria-labelledby="logout-dialog-title">
+        <DialogTitle id="logout-dialog-title">Confirm Logout</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you want to logout?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog} color="inherit">
+            Cancel
+          </Button>
+          <Button onClick={logout} color="error" autoFocus>
+            Logout
+            <LogoutIcon sx={{fontSize:15}}/>
+            
+          </Button>
+        </DialogActions>
+      </Dialog>
+      
     </Box>
   );
 };

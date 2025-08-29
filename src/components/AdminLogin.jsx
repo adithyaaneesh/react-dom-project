@@ -3,13 +3,14 @@ import { useNavigate } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import Spinner from "../components/Spinner";
 import "../styles/AdminLogin.css";
+import toast from "react-hot-toast";
 const AdminLogin = () => {
     const { login } = useContext(AuthContext);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
+    // const [error, setError] = useState("");
     const navigate = useNavigate();
     useEffect(() => {
         if (!localStorage.getItem("admin")) {
@@ -26,14 +27,15 @@ const AdminLogin = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
-        setError("");
         setTimeout(() => {
         const admin = JSON.parse(localStorage.getItem("admin"));
         if (admin && email === admin.email && password === admin.password) {
             login(admin);
             navigate("/admin/dashboard");
+            toast.success(" You are authorized");
+
         } else {
-            setError(":x: You are not authorized");
+            toast.error(" You are not authorized");
         }
         setLoading(false);
         }, 1200);
@@ -45,7 +47,7 @@ const AdminLogin = () => {
         ) : (
             <form className="admin-login-form" onSubmit={handleSubmit}>
             <h2 className="admin-login-title">Admin Login</h2>
-            {error && <p className="admin-error">{error}</p>}
+            {/* {error && <p className="admin-error">{error}</p>} */}
             <div className="admin-input-group">
                 <label className="admin-label">Email Address</label>
                 <input
