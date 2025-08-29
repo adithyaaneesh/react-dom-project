@@ -4,7 +4,7 @@ import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-import ProductListTable from './ProductListTable';
+import OrderListTable from '../../components/OrderListTable';
 
 const stats = [
     { label: "Pending Payment", value: 56, icon: <CalendarTodayIcon /> },
@@ -13,8 +13,7 @@ const stats = [
     { label: "Failed", value: 32, icon: <ErrorOutlineIcon /> },
 ];
 
-
-const ProductList = () => {
+const OrderList = () => {
 return (
     <Grid container>
         <Paper elevation={2} sx={{ p: 2, borderRadius: 2 , mt:2, mr:1}}>
@@ -52,7 +51,7 @@ return (
         </Grid>
         </Paper>
         <Paper elevation={4} direction="row" spacing={2}  sx={{p: 2, borderRadius: 2 , mt:2, mr:1, width:"100%"}}>
-           <ProductListTable/>
+           <OrderListTable/>
         </Paper>
     </Grid>
 
@@ -60,4 +59,4 @@ return (
   );
 }
 
-export default ProductList;
+export default OrderList;
