@@ -45,8 +45,8 @@
   }
   
   .admin-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.4);
+    border-color: #ca4a6c;
+    box-shadow: 0 0 5px rgba(226, 65, 210, 0.4);
   }
   
   .admin-password-wrapper {
@@ -71,17 +71,20 @@
     border-radius: 8px;
     font-size: 1rem;
     font-weight: bold;
-    background: linear-gradient(135deg, #007bff, #6610f2);
-    color: #fff;
+    background: linear-gradient(180deg, #e4a2b5 0%, #f9d4de 100%);
+    /* background: linear-gradient(135deg, #007bff, #6610f2); */
+    color:black;
     cursor: pointer;
     transition: background 0.3s ease;
   }
   
   .admin-login-btn:hover {
-    background: linear-gradient(135deg, #0056b3, #4b0082);
+    background: linear-gradient(180deg, #fceaef 0%, #d07e94 100%);
+
+    /* background: linear-gradient(135deg, #0056b3, #4b0082); */
   }
   
-  .admin-forgot-link {
+  /* .admin-forgot-link {
     margin-top: 1rem;
     font-size: 0.9rem;
     color: #555;
@@ -91,4 +94,4 @@
   
   .admin-forgot-link:hover {
     color: #007bff;
-  }
+  } */

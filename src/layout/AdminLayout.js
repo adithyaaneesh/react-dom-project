@@ -328,7 +328,7 @@ const Dashboard = () => {
           </Button>
           <Button onClick={logout} color="error" autoFocus>
             Logout
-            <LogoutIcon sx={{fontSize:15}}/>
+            {/* <LogoutIcon sx={{fontSize:15}}/> */}
             
           </Button>
         </DialogActions>

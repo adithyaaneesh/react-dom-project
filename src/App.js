@@ -28,6 +28,7 @@ import AddProducts from './pages/admin/AddProducts';
 // import OrderDetails from './pages/admin/OrderDetails';
 import OrderList from './pages/admin/OrderList';
 import ProductList from './pages/admin/ProductsManagement';
+import OrderDetails from './pages/admin/OrderDetails';
 
 const App = () => {
   return (
@@ -59,7 +60,7 @@ const App = () => {
                   <Route path="/admin/dashboard" element={<DashboardPage />} />
                   <Route path="/admin/products" element={<ProductList />} />
                   <Route path="/admin/products/add" element={<AddProducts />} />
-                  {/* <Route path="/admin/orders/details" element={<OrderDetails />} /> */}
+                  <Route path="/admin/orders/details" element={<OrderDetails />} />
                   <Route path="/admin/orders" element={<OrderList />} />
                   {/* <Route path="/admin/order" element={<OrderManagement />} /> */}
                   <Route path="/admin/customer" element={<CustomerManagement />} />

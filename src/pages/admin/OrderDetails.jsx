@@ -1,63 +1,101 @@
-// import { Grid, Paper, Typography, Box, Divider } from "@mui/material";
-// import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-// import DoneAllIcon from "@mui/icons-material/DoneAll";
-// import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
-// import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
-// import React from "react";
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { Container, Grid, Typography } from '@mui/material';
 
-// const stats = [
-//   { label: "Pending Payment", value: 56, icon: <CalendarTodayIcon /> },
-//   { label: "Completed", value: "12,689", icon: <DoneAllIcon /> },
-//   { label: "Refunded", value: 124, icon: <AccountBalanceWalletIcon /> },
-//   { label: "Failed", value: 32, icon: <ErrorOutlineIcon /> },
-// ];
+const TAX_RATE = 0.07;
 
-// const OrderDetails = () => {
-//   return (
-//     <Paper elevation={2} sx={{ p: 2, borderRadius: 2, mt: 2, mr: 1 }}>
-//       <Grid container alignItems="center">
-//         {stats.map((item, index) => (
-//           <React.Fragment key={index}>
-//             <Grid item xs={6} sm={3}>
-//               <Box
-//                 display="flex"
-//                 alignItems="center"
-//                 justifyContent="center"
-//                 flexDirection="column"
-//                 gap={1}
-//                 sx={{ textAlign: "center", height: "100%" }}
-//               >
-//                 <Box
-//                   color="text.secondary"
-//                   display="flex"
-//                   alignItems="center"
-//                   gap={1}
-//                 >
-//                   <Typography variant="h5" fontWeight="bold">
-//                     {item.value}
-//                   </Typography>
-//                   {item.icon}
-//                 </Box>
+function ccyFormat(num) {
+  return `${num.toFixed(2)}`;
+}
 
-//                 <Box color="text.secondary">
-//                   <Typography variant="body2">{item.label}</Typography>
-//                 </Box>
-//               </Box>
-//             </Grid>
+function priceRow(qty, unit) {
+  return qty * unit;
+}
 
-//             {/* Divider between items (except last) */}
-//             {index < stats.length - 1 && (
-//               <Divider
-//                 orientation="vertical"
-//                 flexItem
-//                 sx={{ borderColor: "grey.300" }}
-//               />
-//             )}
-//           </React.Fragment>
-//         ))}
-//       </Grid>
-//     </Paper>
-//   );
-// };
+function createRow(desc, qty, unit) {
+  const price = priceRow(qty, unit);
+  return { desc, qty, unit, price };
+}
 
-// export default OrderDetails;
+function subtotal(items) {
+  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
+}
+
+const rows = [
+  createRow('Paperclips (Box)', 100, 1.15),
+  createRow('Paper (Case)', 10, 45.99),
+  createRow('Waste Basket', 2, 17.99),
+];
+
+const invoiceSubtotal = subtotal(rows);
+const invoiceTaxes = TAX_RATE * invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+
+const OrderDetails = () => {
+  return (
+    <Grid>
+    <Typography variant='h3'> Order</Typography>
+    <TableContainer component={Paper} sx={{mt:2}}>
+      <Grid item xs={2} md={4} size={8}>
+           <Table sx={{ minWidth: 700 }} aria-label="spanning table">
+        <TableHead>
+          <TableRow>
+            <TableCell align="start"  colSpan={3}>
+              <Typography variant='h6'>Order Details</Typography>
+            </TableCell>
+            <TableCell align="right" sx={{color:'red'}}>Edit</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>PRODUCT</TableCell>
+            <TableCell align="right">PRICE</TableCell>
+            <TableCell align="right">QTY</TableCell>
+            <TableCell align="right">TOTAL</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <TableRow key={row.desc}>
+              <TableCell>{row.desc}</TableCell>
+              <TableCell align="right">{row.qty}</TableCell>
+              <TableCell align="right">{row.unit}</TableCell>
+              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+            </TableRow>
+          ))}
+          <TableRow>
+            <TableCell rowSpan={4} />
+            <TableCell colSpan={2}>Subtotal</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Discount</TableCell>
+            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Tax</TableCell>
+            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Total</TableCell>
+            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell colSpan={2}>Total</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+          </Grid>
+    </TableContainer>
+    </Grid>
+  );
+}
+export default OrderDetails
