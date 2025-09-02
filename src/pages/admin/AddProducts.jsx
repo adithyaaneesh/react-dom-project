@@ -8,7 +8,9 @@ import {
   Paper,
 } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import { useNavigate } from "react-router-dom";
 function AddProduct() {
+
 const [product, setProduct] = useState({
 name: "",
 category: "",
@@ -17,6 +19,8 @@ stock: "",
 description: "",
 image: null,
 });
+const navigate = useNavigate();
+
 const [preview, setPreview] = useState(null);
 const [errors, setErrors] = useState({});
 const handleChange = (e) => {
@@ -149,7 +153,7 @@ return (
             <Button variant="outlined" color="secondary" onClick={handleReset} sx={{ mr: 2 }}>
             Reset
             </Button>
-            <Button variant="contained" type="submit" color="primary">
+            <Button variant="contained" type="submit" color="primary" onClick={()=> navigate('/admin/products')}>  
             Add Product
             </Button>
         </Grid>

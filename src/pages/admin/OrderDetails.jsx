@@ -1,101 +1,63 @@
-import * as React from 'react';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Container, Grid, Typography } from '@mui/material';
+import {Box,Typography,Paper,Grid,Table,TableHead,TableRow,TableCell,TableBody,Divider,} from "@mui/material";
+const order = {
+    products: [
+        { name: "Banana Pop", details: "Tote bag", price: 150, qty: 3 },
+        { name: "Night Desert", details: "Tote bag", price: 280, qty: 1 },
+        { name: "Indigo Splash", details:"Tote bag", price: 230, qty: 2 },
+        { name: "Rustic Strokes", details: "Tote bag", price: 350, qty: 2 },
+    ],
 
-const TAX_RATE = 0.07;
-
-function ccyFormat(num) {
-  return `${num.toFixed(2)}`;
-}
-
-function priceRow(qty, unit) {
-  return qty * unit;
-}
-
-function createRow(desc, qty, unit) {
-  const price = priceRow(qty, unit);
-  return { desc, qty, unit, price };
-}
-
-function subtotal(items) {
-  return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
-
-const rows = [
-  createRow('Paperclips (Box)', 100, 1.15),
-  createRow('Paper (Case)', 10, 45.99),
-  createRow('Waste Basket', 2, 17.99),
-];
-
-const invoiceSubtotal = subtotal(rows);
-const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
-
-const OrderDetails = () => {
-  return (
-    <Grid>
-    <Typography variant='h3'> Order</Typography>
-    <TableContainer component={Paper} sx={{mt:2}}>
-      <Grid item xs={2} md={4} size={8}>
-           <Table sx={{ minWidth: 700 }} aria-label="spanning table">
-        <TableHead>
-          <TableRow>
-            <TableCell align="start"  colSpan={3}>
-              <Typography variant='h6'>Order Details</Typography>
-            </TableCell>
-            <TableCell align="right" sx={{color:'red'}}>Edit</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>PRODUCT</TableCell>
-            <TableCell align="right">PRICE</TableCell>
-            <TableCell align="right">QTY</TableCell>
-            <TableCell align="right">TOTAL</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.desc}>
-              <TableCell>{row.desc}</TableCell>
-              <TableCell align="right">{row.qty}</TableCell>
-              <TableCell align="right">{row.unit}</TableCell>
-              <TableCell align="right">{ccyFormat(row.price)}</TableCell>
+};
+export default function OrderDetails() {
+    const subtotal = order.products.reduce(
+        (acc, p) => acc + p.price * p.qty,
+        0
+    );
+    const discount = 2;
+    const total = subtotal - discount;
+return (
+<Box p={1}>
+    <Grid container spacing={3} sx={{display:"flex", justifyContent:'center'}}>
+    <Grid item xs={12} md={8}>
+        <Paper sx={{ p: 2 }}>
+        <Typography variant="h6" mb={2}>
+            Order details
+        </Typography>
+        <Table>
+            <TableHead>
+            <TableRow>
+                
+                <TableCell>Products</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Qty</TableCell>
+                <TableCell>Total</TableCell>
             </TableRow>
-          ))}
-          <TableRow>
-            <TableCell rowSpan={4} />
-            <TableCell colSpan={2}>Subtotal</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Discount</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Tax</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Total</TableCell>
-            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
-          </Grid>
-    </TableContainer>
+            </TableHead>
+            <TableBody>
+            {order.products.map((p, index) => (
+                <TableRow key={index}>
+                <TableCell>
+                    <Typography>{p.name}</Typography>
+                    <Typography variant="caption" color="text.secondary">
+                    {p.details}
+                    </Typography>
+                </TableCell>
+                <TableCell>${p.price}</TableCell>
+                <TableCell>{p.qty}</TableCell>
+                <TableCell>${p.price * p.qty}</TableCell>
+                </TableRow>
+            ))}
+            </TableBody>
+        </Table>
+        <Divider sx={{ my: 2 }} />
+        <Box display="flex" justifyContent="flex-end" flexDirection="column">
+            <Typography>Subtotal: ${subtotal}</Typography>
+            <Typography>Discount: ${discount}</Typography>
+            <Typography fontWeight="bold">Total: ${total}</Typography>
+        </Box>
+        </Paper>
     </Grid>
-  );
+    </Grid>
+</Box>
+);
 }
-export default OrderDetails

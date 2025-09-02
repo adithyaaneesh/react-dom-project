@@ -3,7 +3,11 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { Box, Button, Checkbox, Grid, MenuItem, Paper, Select, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from "@mui/material";
 
 const rows = [
-  { id: 1, customer: "Elif Shafak", customerId: "#1001", country: "Switzerland", order: "Tote Bag", totalSpend: "$200", },
+  { id: 1, customer: "Elif Shafak", customerId: "#1001", country: "Switzerland", order: "Banana Pop", totalSpend: "$200", },
+  { id: 2, customer: "Coollen Hover", customerId: "#1002", country: "USA", order: "Night Desert", totalSpend: "$200", },
+  { id: 3, customer: "William Shakespeare", customerId: "#1003", country: "India", order: "Indigo Splash", totalSpend: "$200", },
+  { id: 4, customer: "Jane Austen", customerId: "#1004", country: "Oman", order: "Tiger Muse", totalSpend: "$200", },
+  { id: 5, customer: "Lev Tolstoy", customerId: "#1005", country: "UK", order: "Rustic Strokes", totalSpend: "$200", },
 ];
 
 const CustomerManagement = () => {

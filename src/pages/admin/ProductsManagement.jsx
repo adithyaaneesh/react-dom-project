@@ -16,16 +16,17 @@ const stats = [
 
 const ProductList = () => {
 return (
-    <Grid container>
-        <Paper elevation={2} sx={{ p: 2, borderRadius: 2 , mt:2, mr:1}}>
-        <Grid container>
+<Box sx={{ p: 1 }}>
+   <Paper elevation={2} sx={{ p: 2, borderRadius: 2 ,width:"100%"}}>
+        <Grid container sx={{flexBasis:"25%"}}>
             {stats.map((item, index) => (
             <React.Fragment key={index}>
-                <Grid item xs={12} sm={3}>
+                <Box sx={{flexGrow:1 ,p:1}}>
                 <Box
+                
                     display="flex"
                     alignItems="center"
-                    gap={12}
+                    justifyContent="space-between"
                     sx={{ p: 2 }}
                 >
                     <Box>
@@ -38,7 +39,7 @@ return (
                     </Box>
                     <Box color="text.secondary">{item.icon}</Box>
                 </Box>
-                </Grid>
+                </Box>
                 {index < stats.length - 1 && (
                 <Divider
                     orientation="vertical"
@@ -50,11 +51,11 @@ return (
             ))}
             
         </Grid>
-        </Paper>
-        <Paper elevation={4} direction="row" spacing={2}  sx={{p: 2, borderRadius: 2 , mt:2, mr:1, width:"100%"}}>
-           <ProductListTable/>
-        </Paper>
-    </Grid>
+    </Paper>
+    <Paper elevation={4} direction="row" spacing={2}  sx={{p: 2, borderRadius: 2 , mt:1, width:"100%"}}>
+        <ProductListTable/>
+    </Paper>
+</Box>
 
     
   );
