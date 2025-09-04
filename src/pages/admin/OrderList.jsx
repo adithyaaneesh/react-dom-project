@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography, Box, Divider } from "@mui/material";
+import { Grid, Paper, Typography, Box, Divider, Stack, Pagination } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
@@ -128,7 +128,7 @@ return (
             <MenuItem value={20}>20</MenuItem>
             <MenuItem value={50}>50</MenuItem>
         </Select> */}
-        <Button
+        <Button sx={{p:1}}
             variant="outlined"
             startIcon={<DownloadIcon />}
             size="small"
@@ -198,6 +198,9 @@ return (
         </Table>
     </TableContainer>
     </Paper>
+    <Stack spacing={2} sx={{mt:2, alignItems:"flex-end" }}>
+                <Pagination count={10} color="primary" />
+                </Stack>
 </Box>
 );
 }
