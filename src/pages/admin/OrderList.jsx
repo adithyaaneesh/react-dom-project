@@ -10,7 +10,8 @@ import {TextField,Table,TableBody,TableCell,TableContainer,TableHead,TableRow,Av
 // import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DownloadIcon from "@mui/icons-material/Download";
-import React from "react";
+import React, { useState } from "react";
+import debounce from "lodash.debounce";
 
 const stats = [
     { label: "Pending Payment", value: 56, icon: <CalendarTodayIcon /> },
@@ -72,6 +73,25 @@ const statusChipColor = {
 
     
 export default function OrdersDashboard() {
+
+    const [data, setData] = useState(orders)
+    const [searchQuery, setSearchQuery] = useState('')
+
+    const handleSearchInput = (e) => {
+        const value = e.target.value
+        setSearchQuery(value)
+        handleSearch(value)
+    }
+    const handleSearch = debounce((val) => {
+        
+        if (val) {
+            let list = orders.filter(item=> item.customer.toLocaleLowerCase().includes(val.toLocaleLowerCase()))
+            setData(list)
+        } else {
+            setData(orders)
+        }
+    }, 300)
+
 return (
 <Box sx={{ p: 1 }}>
    <Paper elevation={2} sx={{ p: 2, borderRadius: 2 ,width:"100%"}}>
@@ -121,6 +141,8 @@ return (
         placeholder="Search Order"
         size="small"
         sx={{ width: 250 }}
+        value={searchQuery} 
+        onChange={handleSearchInput}
         />
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
         {/* <Select size="small" defaultValue={10}>
@@ -150,7 +172,7 @@ return (
             </TableRow>
         </TableHead>
         <TableBody>
-            {orders.map((o, i) => (
+            {data.map((o, i) => (
             <TableRow key={i}>
                 <TableCell>
                     

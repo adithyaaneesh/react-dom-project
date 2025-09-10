@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ShopCard from './ShopCard'
 import '../styles/Shop.css'
 import { productList } from '../data/Shop'
@@ -20,9 +20,12 @@ const Shop = () => {
   const [priceRange, setPriceRange] = useState([100 , 500]);
 
   const [sortType, setSortType] = useState('all');
+  const [filteredItems, setFilteredItems] = useState(productList)
   
 
-  let filteredItems = productList.filter(item => {
+  useEffect(()=> {
+    
+    let listItems = productList.filter(item => {
     const matchesSearch = item.title.toLowerCase().includes(searchProduct.toLowerCase());
     const productPrice = item.salePrice ? item.salePrice : item.price;
     const matchesPrice =
@@ -36,18 +39,22 @@ const Shop = () => {
     
   });
   if (sortType === "priceLowHigh") {
-    filteredItems = [...filteredItems].sort((a, b) => {
+    listItems = [...listItems].sort((a, b) => {
       const priceA = a.salePrice ? a.salePrice : a.price;
       const priceB = b.salePrice ? b.salePrice : b.price;
       return priceA - priceB;
     });
   } else if (sortType === "priceHighLow") {
-    filteredItems = [...filteredItems].sort((a, b) => {
+    listItems = [...listItems].sort((a, b) => {
       const priceA = a.salePrice ? a.salePrice : a.price;
       const priceB = b.salePrice ? b.salePrice : b.price;
       return priceB - priceA;
     });
   }
+
+  setFilteredItems(listItems)
+
+  }, [searchProduct, sortType, priceRange])
 
 
   return (
