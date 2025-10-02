@@ -32,16 +32,9 @@ const Header = () => {
             <li><Link to="/shop">Shop</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/faq">FAQ</Link></li>
-            <li><Link to="/gift">Gift Card</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
-          {/* Icons */}
           <div className="header-icons">
-            <div className="search-box">
-              <Link to="/search" className="user-icon">
-                <img src='/images/search.svg' alt="Search" />
-              </Link>
-            </div>
             {isLoggedIn ? (
               <Link to="/user" className="user-icon">
                 <img src="/images/userpass.svg" alt="User Account" />
